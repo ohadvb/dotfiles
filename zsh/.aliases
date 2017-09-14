@@ -6,6 +6,7 @@ alias findfile='find . -iname'
 
 # emacs
 alias vi=$EDITOR
+alias em='emacsclient -n'
 
 # Git
 # No arguments: `git status`

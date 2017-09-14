@@ -1,6 +1,5 @@
 ##### COMPLETION #####
 
-fpath=('/usr/local/share/zsh/site-functions' $fpath)
 autoload -U compinit
 compinit
 # completion menu style
@@ -34,7 +33,7 @@ export GREP_OPTIONS="--color"
 
 ##### EDITOR #####
 
-export VISUAL="emacsclient -nw"
+export VISUAL="emacsclient -c"
 export EDITOR=$VISUAL
 
 ##### BINDINGS #####
