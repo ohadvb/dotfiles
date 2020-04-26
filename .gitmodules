@@ -64,3 +64,6 @@
 [submodule "vim/.vim/bundle/fugitive"]
 	path = vim/.vim/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/.vim/bundle/vim-gutentags"]
+	path = vim/.vim/bundle/vim-gutentags
+	url = https://github.com/ludovicchabant/vim-gutentags.git
