@@ -3,36 +3,9 @@ set nocompatible
 " Clear all autocommands
 autocmd!
 
-" Vim-Plug setup
-call plug#begin('~/.vim/plugged')
-
-" List your plugins here
-" CoC for LSP support
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Vista for tag navigation
-Plug 'liuchengxu/vista.vim'
-
-" FZF for file and buffer navigation
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-" molokai for pretty colors
-Plug 'tomasr/molokai'
-" stuff i'm used to
-Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-surround'
-
-" Add more plugins as needed
-
-call plug#end()
-
-
-" CoC configuration for Python
-autocmd FileType python source $VIMRUNTIME/ftplugin/python.vim
-autocmd FileType python autocmd BufWritePre <buffer> CocFormat
-
-" CoC configuration for C++
-let g:coc_global_extensions = ['coc-clangd', 'coc-pyright']
+" Load pathogen
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
 
 " General
 filetype plugin indent on
@@ -92,6 +65,11 @@ colorscheme molokai
 noremap <F2> :setlocal invrightleft<cr>
 inoremap <F2> <c-o>:setlocal invrightleft<cr>
 
+" Tags
+noremap g] g<c-]>
+
+" Omnicomplete
+set completeopt-=preview
 
 " Encryption
 set cryptmethod=blowfish
@@ -109,11 +87,20 @@ map zP "+P
 " Highlight current word
 nnoremap <silent> <space> :let @/ = "\\<".expand("<cword>")."\\>"<cr>:set hls<cr>
 
+"""""""""""""""""""""""""""""""
+" Autocommands
+"""""""""""""""""""""""""""""""
+augroup vimrc
+    " Clear all commands in the group
+    autocmd!
+
+    autocmd FileType text,markdown setlocal textwidth=78
+    autocmd FileType help setlocal number relativenumber
+
+    autocmd BufWritePost $MYVIMRC source %
+augroup END
 
 nnoremap <leader>V :tabe $MYVIMRC<cr>
-
-" faster esc (for fzf)
-set ttimeoutlen=100
 
 " Faster macro invocation
 noremap <leader>q @q
@@ -125,20 +112,3 @@ map <leader>e :edit %%
 " Faster buffer switching
 noremap <Tab> :bn<cr>
 noremap <S-Tab> :bp<cr>
-
-" use Enter to save
-nnoremap <CR> :w<CR>
-
-" FZF with CtrlP for file and buffer navigation
-nnoremap <C-p> :Files<CR>
-nnoremap <C-b> :Buffers<CR>
-
-" CoC key mappings (example)
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gD <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-"nnoremap <leader>gd :call CocAction('definition')<CR>
-"nnoremap <leader>gr :call CocAction('references')<CR>
-
-" Vista key mapping
-nnoremap <leader>t :Vista<CR>
