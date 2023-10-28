@@ -7,6 +7,8 @@ autocmd!
 call plug#begin('~/.vim/plugged')
 
 " List your plugins here
+" Co-pilot
+Plug 'github/copilot.vim'
 " CoC for LSP support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -139,9 +141,17 @@ nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
 
 " CoC key mappings 
+" motions
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" Remap keys for applying code actions at the cursor position
+nmap <leader>ac  <Plug>(coc-codeaction-cursor)
+" Remap keys for apply code actions affect whole buffer
+nmap <leader>as  <Plug>(coc-codeaction-source)
+" Apply the most preferred quickfix action to fix diagnostic on the current line
+nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Symbol renaming
 nmap <leader>rn <Plug>(coc-rename)
