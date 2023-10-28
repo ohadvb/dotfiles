@@ -21,10 +21,15 @@ Plug 'tomasr/molokai'
 " stuff i'm used to
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'Raimondi/delimitMate'
 
 " Add more plugins as needed
 
 call plug#end()
+
+" CoC config location
+let g:coc_user_config = expand('~/.vim/coc/coc-settings.json')
 
 
 " CoC configuration for Python
@@ -133,12 +138,18 @@ nnoremap <CR> :w<CR>
 nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
 
-" CoC key mappings (example)
+" CoC key mappings 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-"nnoremap <leader>gd :call CocAction('definition')<CR>
-"nnoremap <leader>gr :call CocAction('references')<CR>
+
+" Symbol renaming
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
 
 " Vista key mapping
 nnoremap <leader>t :Vista<CR>
