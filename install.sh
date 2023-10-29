@@ -26,6 +26,35 @@ else
   curl -sL install-node.vercel.app/lts | bash
 fi
 
+# Function to check Vim version
+get_vim_version() {
+  local version
+  version=$(vim --version | head -n 1 | awk '{print $5}')
+  echo "$version"
+}
+
+# Check Vim version
+current_vim_version=$(get_vim_version)
+required_vim_version="9.0"
+
+if awk -v current="$current_vim_version" -v required="$required_vim_version" 'BEGIN {if (current >= required) exit 0; else exit 1}'; then
+  echo "Vim $required_vim_version or higher is already installed."
+else
+  echo "Installing Vim $required_vim_version with Python and Lua support..."
+
+  # Check if Homebrew (macOS) is available
+  if is_homebrew_installed; then
+    echo "Using Homebrew to install Vim"
+    brew install vim --with-python3 --with-lua
+  else
+    # Use APT for Linux
+    echo "Using APT to install Vim"
+    sudo apt-get update
+    sudo apt-get install -y vim-nox
+  fi
+
+  echo "Vim $required_vim_version with Python and Lua support has been installed."
+fi
 
 # Check and install pyright for CoC if not installed
 if ! command -v pyright &> /dev/null; then
