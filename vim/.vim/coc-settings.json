@@ -1,0 +1,7 @@
+{
+    "suggest.enablePreselect": false,
+    "python.formatting.provider": "autopep8",
+    "pyright.inlayHints.functionReturnTypes": false,
+    "pyright.inlayHints.variableTypes": false,
+    "pyright.organizeimports.provider": "isort",
+}
