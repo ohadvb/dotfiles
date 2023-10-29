@@ -36,7 +36,7 @@ let g:coc_user_config = expand('~/.vim/coc/coc-settings.json')
 
 " CoC configuration for Python
 autocmd FileType python source $VIMRUNTIME/ftplugin/python.vim
-autocmd FileType python autocmd BufWritePre <buffer> CocFormat
+autocmd BufWritePre *.py silent! :call CocAction('runCommand', 'python.sortImports')
 
 " CoC configuration for C++
 let g:coc_global_extensions = ['coc-clangd', 'coc-pyright']
