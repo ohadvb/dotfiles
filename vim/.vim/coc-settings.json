@@ -4,4 +4,6 @@
     "pyright.inlayHints.functionReturnTypes": false,
     "pyright.inlayHints.variableTypes": false,
     "pyright.organizeimports.provider": "isort",
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextCurrentLineOnly": true
 }

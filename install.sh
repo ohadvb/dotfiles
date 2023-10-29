@@ -49,6 +49,7 @@ else
   else
     # Use APT for Linux
     echo "Using APT to install Vim"
+    sudo add-apt-repository ppa:jonathonf/vim
     sudo apt-get update
     sudo apt-get install -y vim-nox
   fi
