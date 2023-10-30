@@ -132,6 +132,7 @@ map <leader>e :edit %%
 " Faster buffer switching
 noremap <Tab> :bn<cr>
 noremap <S-Tab> :bp<cr>
+noremap d<Tab> :bd<cr>
 
 " use Enter to save
 nnoremap <CR> :w<CR>
