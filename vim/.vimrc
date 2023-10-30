@@ -163,4 +163,4 @@ nmap <leader>f  <Plug>(coc-format-selected)
 
 
 " Vista key mapping
-nnoremap <leader>t :Vista<CR>
+nnoremap <leader>t :Vista!!<CR>
