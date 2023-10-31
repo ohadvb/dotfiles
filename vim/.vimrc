@@ -32,6 +32,10 @@ call plug#end()
 
 " CoC config location
 let g:coc_user_config = expand('~/.vim/coc/coc-settings.json')
+" use coc for vista
+let g:vista#renderer#coc#enable = ['coc-clangd', 'coc-pyright']
+let g:vista_ignore_kinds = ['class']
+let g:vista_default_executive = 'coc'
 
 
 " CoC configuration for Python
@@ -157,10 +161,7 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 " Symbol renaming
 nmap <leader>rn <Plug>(coc-rename)
 
-" Formatting selected code
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-
 " Vista key mapping
 nnoremap <leader>t :Vista!!<CR>
+nnoremap <leader>f :Vista finder coc <CR>
+nnoremap <leader>s :CocList symbols<CR>
