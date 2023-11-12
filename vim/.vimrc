@@ -169,3 +169,7 @@ nmap <leader>rn <Plug>(coc-rename)
 nnoremap <leader>t :Vista!!<CR>
 nnoremap <leader>f :Vista finder coc <CR>
 nnoremap <leader>s :CocList symbols<CR>
+
+inoremap jk <esc>
+
+nnoremap <BS> :nohl<CR>
