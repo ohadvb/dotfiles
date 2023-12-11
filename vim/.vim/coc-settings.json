@@ -4,6 +4,9 @@
     "pyright.inlayHints.functionReturnTypes": false,
     "pyright.inlayHints.variableTypes": false,
     "pyright.organizeimports.provider": "isort",
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportGeneralTypeIssues": "none",
+    }
     "diagnostic.virtualText": true,
     "diagnostic.virtualTextCurrentLineOnly": true
 }
